@@ -126,6 +126,16 @@ const getItemEnclosures = (node) => {
   }));
 };
 
+const getItemMedia = (node) => {
+  const medias = utils.getChildElements(node, 'media:content');
+  return medias?.map((media) => ({
+    url: media.getAttribute('url'),
+    medium: media.getAttribute('medium'),
+    fileSize: media.getAttribute('fileSize'),
+    type: media.getAttribute('type')
+  }));
+}
+
 const mapChannelFields = (document) => {
   const channelNodes = utils.getElements(document, 'channel');
 
@@ -164,6 +174,7 @@ const mapItems = (document) => {
     published: getItemPublished(item),
     enclosures: getItemEnclosures(item),
     itunes: itunesParser.parseItem(item),
+    medias: getItemMedia(item),
   }));
 };
 

@@ -103,6 +103,14 @@ const rss = {
         subtitle: undefined,
         summary: undefined,
       },
+      medias: [
+        {
+          url: undefined,
+          type: undefined,
+          fileSize: undefined,
+          medium: undefined,
+        }
+      ]
     },
   ],
 };
